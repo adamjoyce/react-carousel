@@ -1,3 +1,45 @@
+html {
+  height: 100%;
+}
+
 body {
-  background-color: green;
+  background-color: #eee;
+  height: 100%;
+}
+
+#app {
+  align-items: center;
+  display: grid;
+  height: 100%;
+}
+
+.carousel {
+  height: 100%;
+  position: relative;
+}
+
+.slide {
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+}
+
+.arrow {
+  align-items: center;
+	cursor: pointer;
+  display: grid;
+	font-size: 4rem;
+  height: 100%;
+	position: absolute;
+  width: 4rem;
+}
+
+.arrow.left {
+  left: 0.5rem;
+}
+
+.arrow.right {
+  text-align: right;
+  right: 0.5rem;
 }
