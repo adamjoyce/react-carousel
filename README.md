@@ -1,2 +1,2 @@
-# react-carousell
-A simple carousell project for learning react and playing with the instagram api.
+# react-carousel
+A simple carousel project for learning react and playing with the instagram api.
