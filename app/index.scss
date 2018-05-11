@@ -1,28 +1,36 @@
-html {
-  height: 100%;
-}
-
 body {
   background-color: #eee;
-  height: 100%;
-}
-
-#app {
-  align-items: center;
-  display: grid;
-  height: 100%;
 }
 
 .carousel {
+  bottom: 0;
+  display: block;
+  left: 0;
+  margin: 5rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.slide-panel {
   height: 100%;
   position: relative;
 }
 
 .slide {
-  background-size: cover;
   background-position: center;
+  background-size: cover;
   height: 100%;
+  opacity: 0;
+  position: absolute;
+  transition: opacity 1s;
   width: 100%;
+  z-index: 1;
+}
+
+.visible {
+  opacity: 1;
+  z-index: 2;
 }
 
 .arrow {
@@ -33,13 +41,16 @@ body {
   height: 100%;
 	position: absolute;
   width: 4rem;
+  z-index: 3;
 }
 
 .arrow.left {
-  left: 0.5rem;
+  left: 0;
+  padding-left: 0.5rem;
 }
 
 .arrow.right {
+  padding-right: 0.5rem;
   text-align: right;
-  right: 0.5rem;
+  right: 0;
 }
