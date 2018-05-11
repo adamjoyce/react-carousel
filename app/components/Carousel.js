@@ -1,6 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Slides from './Slides';
+import Pipbar from './Pipbar';
 
 const slideData = [
   "http://4.bp.blogspot.com/-Tb_CuuQ9s1I/T9sCdXaRy2I/AAAAAAAAAiM/6WRl1Mk3q5g/s1600/Cute-Kitten-kittens-Licking-1280x800.jpg",
@@ -17,6 +19,11 @@ const Arrow = ({direction, onClickFunction}) => (
       : <i className="fas fa-angle-right"></i>}
   </div>
 );
+
+Arrow.propTypes = {
+  direction: PropTypes.string.isRequired,
+  onClickFunction: PropTypes.func.isRequired
+}
 
 class Carousel extends React.Component {
   constructor(props) {
@@ -57,6 +64,10 @@ class Carousel extends React.Component {
       <div className="carousel">
         <Arrow direction="left" onClickFunction={this.previousSlide} />
         <Arrow direction="right" onClickFunction={this.nextSlide} />
+        <Pipbar
+          slideData={slideData}
+          currentSlideIndex={currentSlideIndex}
+        />
         <Slides slideData={slideData} currentSlideIndex={currentSlideIndex} />
       </div>
     );

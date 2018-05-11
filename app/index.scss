@@ -1,5 +1,11 @@
+$carousel-color: #0060ca;
+
 body {
-  background-color: #eee;
+  background-color: #91ceff;
+}
+
+.hidden {
+  opacity: 0;
 }
 
 .carousel {
@@ -20,6 +26,9 @@ body {
 .slide {
   background-position: center;
   background-size: cover;
+  border: 3px solid $carousel-color;
+  border-radius: 1rem;
+  box-sizing: border-box;
   height: 100%;
   opacity: 0;
   position: absolute;
@@ -35,22 +44,34 @@ body {
 
 .arrow {
   align-items: center;
+  color: $carousel-color;
 	cursor: pointer;
   display: grid;
 	font-size: 4rem;
   height: 100%;
 	position: absolute;
-  width: 4rem;
   z-index: 3;
 }
 
 .arrow.left {
   left: 0;
   padding-left: 0.5rem;
+  padding-right: 2rem;
 }
 
 .arrow.right {
+  padding-left: 2rem;
   padding-right: 0.5rem;
-  text-align: right;
   right: 0;
+}
+
+.pipbar {
+  bottom: 1rem;
+  color: $carousel-color;
+  font-size: 1.3rem;
+  left: 0;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  z-index: 3;
 }
