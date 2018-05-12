@@ -29,10 +29,22 @@ class Carousel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentSlideIndex: 0
+      currentSlideIndex: 0,
+      timer: null
     }
     this.previousSlide = this.previousSlide.bind(this);
     this.nextSlide = this.nextSlide.bind(this);
+  }
+
+  componentDidMount() {
+    this.state.timer = setInterval(() => {
+      console.log('CHANGE');
+      return this.nextSlide();
+    }, this.props.slideDelay);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.state.timer);
   }
 
   // Sets the previous image slide index accounting for wrap-around.
@@ -59,6 +71,7 @@ class Carousel extends React.Component {
   }
 
   render() {
+    const {slideDelay} = this.props;
     const {currentSlideIndex} = this.state;
     return (
       <div className="carousel">
@@ -67,11 +80,20 @@ class Carousel extends React.Component {
         <Pipbar
           slideData={slideData}
           currentSlideIndex={currentSlideIndex}
+          slideDelay={slideDelay}
         />
         <Slides slideData={slideData} currentSlideIndex={currentSlideIndex} />
       </div>
     );
   }
+}
+
+Carousel.propTypes = {
+  slideDelay: PropTypes.number.isRequired
+}
+
+Carousel.defaultProps = {
+  slideDelay: 3000
 }
 
 export default Carousel;

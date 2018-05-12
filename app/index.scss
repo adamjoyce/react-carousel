@@ -13,6 +13,8 @@ body {
   display: block;
   left: 0;
   margin: 5rem;
+  min-height: 20rem;
+  min-width: 20rem;
   position: absolute;
   top: 0;
   right: 0;
@@ -74,4 +76,32 @@ body {
   right: 0;
   text-align: center;
   z-index: 3;
+}
+
+.progress-wrapper {
+  display: inline-block;
+  position: relative;
+}
+
+.progress-wrapper span {
+  margin: 0.3rem 0;
+}
+
+.progress-bar {
+  background-color: $carousel-color;
+  bottom: 0;
+  display: block;
+  height: 2px;
+  position: absolute;
+  width: 0;
+}
+
+@-webkit-keyframes progress {
+  from {width: 0;}
+  to {width: 100%;}
+}
+
+@keyframes progress {
+  from {width: 0;}
+  to {width: 100%;}
 }
