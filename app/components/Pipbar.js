@@ -1,21 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// import ProgressBar from './ProgressBar';
-
-const ProgressBar = (props) => {
-  const styles = {
-    WebkitAnimation: 'progress 3s linear infinite',
-    animation: 'progress 3s linear infinite'
-  }
-  return (
-    <div className="progress-bar" style={styles}></div>
-  );
-};
-
-ProgressBar.propTypes = {
-  slideDelay: PropTypes.number.isRequired
-}
+import ProgressBar from './ProgressBar';
 
 const Pip = (props) => {
   const {activePip} = props;
@@ -41,7 +27,12 @@ Pip.defaultProps = {
 }
 
 function Pipbar(props) {
-  const {slideData, currentSlideIndex, slideDelay} = props;
+  const {
+    slideData,
+    currentSlideIndex,
+    slideDelay,
+    autoSliding,
+    startAutoSlide} = props;
   return (
     <div className="pipbar">
       <div className="progress-wrapper">
@@ -52,7 +43,12 @@ function Pipbar(props) {
             ? <Pip key={index + Math.random()} activePip={true} />
             : <Pip key={index + Math.random()} />
         )}
-        <ProgressBar slideDelay={slideDelay} />
+        {autoSliding
+          ? <ProgressBar
+              slideDelay={slideDelay}
+              startAutoSlide={startAutoSlide}
+            />
+          : null}
       </div>
     </div>
   );
@@ -61,7 +57,9 @@ function Pipbar(props) {
 Pipbar.propTypes = {
   slideData: PropTypes.array.isRequired,
   currentSlideIndex: PropTypes.number.isRequired,
-  slideDelay: PropTypes.number.isRequired
+  slideDelay: PropTypes.number.isRequired,
+  autoSliding: PropTypes.bool.isRequired,
+  startAutoSlide: PropTypes.func.isRequired
 }
 
 export default Pipbar;
