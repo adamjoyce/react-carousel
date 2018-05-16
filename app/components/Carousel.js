@@ -45,7 +45,7 @@ class Carousel extends React.Component {
     if (timer) {clearInterval(timer);}
   }
 
-  startAutoSlide() {
+  startAutoSlide(updateProgressBar) {
     this.state.timer = setInterval(() => {
       return this.nextSlide();
     }, this.props.slideDelay);
